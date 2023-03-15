@@ -1,4 +1,4 @@
-# SSG Website Template
+# AMCIC.VN Website
 
 ## ExpressJS
 ## MongooseJS
