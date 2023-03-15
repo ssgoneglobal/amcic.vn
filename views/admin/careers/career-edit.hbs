@@ -1,0 +1,189 @@
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+      <h4 class="mb-sm-0 font-size-18">Update career</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active">Update career</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+<p style="display:none" id="slug">{{career.slug}}</p>
+<div class="modal fade" id="ignismyModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+
+        <div class="thank-you-pop">
+          <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+          <h1 class="text-center">Success!</h1>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end page title -->
+<form class="needs-validation add-product-form" novalidate="" action="/admin/career/{{career.slug}}" method="POST"
+  enctype="multipart/form-data">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Info</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="example-text-input" class="form-label">Title</label>
+                <input class="form-control" name="title" value="{{career.title}}" type="text" id="title">
+              </div>
+              <div class="mb-3">
+                <label for="example-text-input" class="form-label">Position</label>
+                <input class="form-control" type="text" name="position" value="{{career.position}}" id="position">
+              </div>
+              <div class="mb-3">
+                <label for="example-text-input" class="form-label">Expiration Work</label>
+                <input class="form-control" type="text" name="expirationWork" value="{{career.expirationWork}}"
+                  id="exWork">
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="example-text-input" class="form-label">Salary</label>
+              <input class="form-control" type="text" name="salary" value="{{career.salary}}" id="salary">
+            </div>
+            <div class="mb-3">
+              <label for="example-text-input" class="form-label">Location</label>
+              <input class="form-control" type="text" name="location" value="{{career.location}}" id="location">
+            </div>
+            <div class="mb-3">
+              <label for="example-text-input" class="form-label">Time Title</label>
+              <input class="form-control" type="text" name="timeTitle" value="{{career.timeTable.timeTitle}}"
+                id="timeAble">
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="example-text-input" class="form-label">Time Work</label>
+            <input class="form-control" type="text" name="timeWork" value="{{career.timeTable.timeWork}}" id="timeWork">
+          </div>
+          <div class="mb-3">
+
+            <label class="form-label">Select Tags</label>
+            <select class="form-control"  data-trigger name="tags"
+              id="choices-multiple-remove-button" placeholder="This is a placeholder" multiple>
+              {{#each career.tags}}
+              <option selected="selected" value="{{this._id}}">{{this.name}}</option>
+              {{/each}}
+              {{#each tags}}
+              <option value="{{this._id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div id="show-image">
+                <label class="form-label">Thumbnail</label>
+                <br>
+                <div class="d-flex justify-content-center">
+                  <img src="{{career.featuredImage}}" class="img-fluid w-50" alt="Responsive image">
+                </div>
+                <div class="d-flex justify-content-center">
+                  <a role="button" class="primary" id="up">Update thumbnail</a>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="custom-file" id="updateImage">
+                  <div class="d-flex justify-content-start">
+                    <label class="form-label">Update thumbnail</label>
+                  </div>
+                  <br>
+                  <input type="file" class="custom-file-input" name="image" id="customFile">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <span role="button" id="cancle">Cancel</span>
+                </div>
+
+              </div> <!-- end col -->
+            </div> <!-- end col -->
+          </div> <!-- end row -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h4 class="card-title" name="content">Content</h4>
+    </div>
+    <div class="card-body">
+      <textarea id="ckeditor-classic" name="content"></textarea>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end">
+    <button class="btn btn-primary">Update</button>
+</form>
+<button type="button" class="btn btn-danger waves-effect waves-light ml-2" style="margin-left: 5px;"
+  data-bs-toggle="modal" data-bs-target="#myModal">Update Status</button>
+<!-- sample modal content -->
+<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true"
+  data-bs-scroll="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Update status care</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="formRadios" value="1" id="formRadios1">
+          <label class="form-check-label" for="formRadios1">
+            Publish
+          </label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="formRadios" value="0" id="formRadios2">
+          <label class="form-check-label" for="formRadios2">
+            Draff
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="status" class="btn btn-danger waves-effect waves-light">Update</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal
+</div>
+<!-- end col -->
+</div>
+<p style="display:none" id="con">{{career.content}}</p>
+
+<!-- JAVASCRIPT -->
+<script src="/assets/libs/jquery/jquery.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/libs/feather-icons/feather.min.js"></script>
+<!-- pace js -->
+<script src="/assets/libs/pace-js/pace.min.js"></script>
+
+<!-- ckeditor -->
+<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+<!-- init js -->
+<script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
+<script src="/assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>
+<!-- init js -->
+<script src="/assets/js/pages/form-advanced.init.js"></script>
+
+<script src="/assets/js/app.js"></script>
+<script src="/js/careerDetail.js"></script>

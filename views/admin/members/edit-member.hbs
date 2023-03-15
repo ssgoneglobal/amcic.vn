@@ -1,0 +1,144 @@
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+      <h4 class="mb-sm-0 font-size-18">Edit Member</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active">Edit Member</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ignismyModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+
+        <div class="thank-you-pop">
+          <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+          <h1 class="text-center">Success!</h1>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end page title -->
+  <form class="needs-validation add-product-form" action="/admin/members" method="POST"
+    enctype="multipart/form-data">
+    <h5> Information about</h5>
+    <div class="row">
+      <div class="col-12 avatar-xxl me-3 avatar-upload">
+        <div class="avatar-edit">
+          {{!-- <form action="" method="post" id="form-image"> --}}
+            <input type="file" id="featuredImage" name="image" accept=".png, .jpg, .jpeg" />
+            <label for="featuredImage"><i class="fa fa-camera"></i></label>
+            {{!--
+          </form> --}}
+        </div>
+
+        <img id="imagePreview" src="{{member.featuredImage}}"
+          alt="" class="img-fluid img-thumbnail tmp-avatar-circle">
+
+      </div>
+    </div>
+
+
+    <div class="row">
+
+
+      <div class="col-xl-4 col-md-6">
+        <div class="form-group mb-3">
+          <label>FullName</label>
+          <input value="{{member.fullName}}" type="text" name="fullName" data-pristine-required-message="Please Enter fullName" required
+            class="form-control" />
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="form-group mb-3">
+          <label>Email</label>
+          <input value="{{member.email}}" type="email" required name="email" data-pristine-required-message="Please Enter a Email" class="form-control" />
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="form-group mb-3">
+          <label>Phone</label>
+          <input value="{{member.phone}}" type="tel" required name="phone" data-pristine-required-message="Please Enter a Email" class="form-control" />
+        </div>
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="form-group mb-3">
+          <label>Date of Birth</label>
+          <input value="{{member.date}}" class="form-control" required type="date" name="dOB">
+        </div>
+
+      </div>
+      <div class="col-xl-4 col-md-6">
+        <div class="form-group mb-3">
+          <label>Position</label>
+          <input value="{{member.position}}" type="text" required name="position" data-pristine-required-message="Please Enter a Position"
+            class="form-control" />
+        </div>
+      </div>
+    </div>
+    <h5> Social Links</h5>
+    <div class="row">
+
+      <div class="col-xl-6 col-md-6">
+        <div class="form-group mb-3">
+          <label>Facebook</label>
+          <input value="{{member.facebook}}" type="text" id="face" name="face" class="form-control" />
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6">
+        <div class="form-group mb-3">
+          <label>Instagram</label>
+          <input value="{{member.instagram}}" type="text" id="ig" name="ig" class="form-control" />
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6">
+        <div class="form-group mb-3">
+          <label>Linkedin</label>
+          <input value="{{member.linkedin}}" type="text" id="linkedin" name="linkedin" class="form-control" />
+        </div>
+      </div>
+      <div class="col-xl-6 col-md-6">
+        <div class="form-group mb-3">
+          <label>Twitter</label>
+          <input value="{{member.twitter}}" type="text" id="twitter" name="twitter" class="form-control" />
+        </div>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary">Save</button>
+    </div>
+  </form>
+  <!-- end col -->
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script src="/assets/libs/jquery/jquery.min.js"></script>
+  <script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+  <script src="/assets/libs/simplebar/simplebar.min.js"></script>
+  <script src="/assets/libs/node-waves/waves.min.js"></script>
+  <script src="/assets/libs/feather-icons/feather.min.js"></script>
+  <!-- pace js -->
+  <script src="/assets/libs/pace-js/pace.min.js"></script>
+
+  <!-- ckeditor -->
+  <script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+  <!-- init js -->
+  <script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
+
+  <script src="/assets/js/app.js"></script>
+  <script src="/js/member.js"></script>

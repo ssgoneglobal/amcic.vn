@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Project",
+    "type": 2
+  },
+  {
+    "title": "Job",
+    "type": 1
+  },
+  {
+    "title": "Article",
+    "type": 0
+  }
+]

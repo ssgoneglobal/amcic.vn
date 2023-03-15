@@ -1,0 +1,101 @@
+/* Services Section Three */
+
+.services-section-three {
+    position: relative;
+    padding: 100px 0 50px;
+}
+
+/* Award Section Two */
+
+.award-section-three {
+    position: relative;
+    padding: 50px 0 0px;
+    background-color: #fff;
+}
+
+/* Process Section Three */
+
+.process-section-three {
+    position: relative;
+    padding: 50px 0 70px;
+}
+
+/* Header Upper */
+
+.main-header .header-upper.about {
+    position: relative;
+    border-top: 1px solid rgb(229, 229, 229);
+}
+
+.banner-section.style-four .banner-carousel .content-box .text {
+    padding-left: 0;
+    color: #000000;
+}
+
+.about-widget-two .social-links li a span {
+    padding-top: 14px;
+}
+
+.sec-title.style-four h2 {
+    color: #f83600;
+}
+
+.sec-title h2 {
+    color: #f83600;
+}
+
+.sec-title.light h2 {
+    color: #f83600;
+}
+
+.main-menu .navigation > li > a {
+    text-transform: none;
+}
+
+.feature-block-five h4 {
+    color: #4c4c4c;
+}
+
+.about-section-five .text {
+    color: #4c4c4c;
+}
+
+.about-section-five .icon-box {
+    color: #4c4c4c;
+}
+
+.about-section-five .icon-box h5 {
+    color: #f83600;
+}
+
+.process-block-three .text {
+    color: #4c4c4c;
+}
+
+.service-block-three .outer-box .text {
+    color: #4c4c4c;
+}
+
+.accordion-box .block .acc-btn {
+    color: #4c4c4c;
+}
+
+.accordion-box .block .acc-content {
+    color: #4c4c4c;
+}
+
+.faq-section .author-box .phone-number {
+    color: #4c4c4c;
+}
+
+.faq-section .list {
+    color: #4c4c4c;
+}
+
+.about-widget-two .text {
+    color: #fff;
+}
+
+.features-section-five .auto-container .feature-block-five {
+    margin-bottom: 30px
+}

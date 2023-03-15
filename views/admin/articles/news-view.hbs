@@ -1,0 +1,207 @@
+<div class="row">
+  <div class="col-xl-12">
+    <div class="profile-user"></div>
+  </div>
+</div>
+<div class="modal fade" id="ignismyModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+
+        <div class="thank-you-pop">
+          <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+          <h1 class="text-center">Success!</h1>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="profile-content">
+    <div class="row align-items-end">
+      <div class="col-sm">
+        <div class="d-flex align-items-end mt-3 mt-sm-0">
+          <div class="flex-shrink-0">
+            {{! <div class="avatar-upload">
+              <div class="avatar-edit">
+                <form action="" method="post" id="form-image">
+                  <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                  <label for="imageUpload"></label>
+                </form>
+              </div>
+              <div class="avatar-preview">
+
+                <img class="profile-user-img img-responsive img-circle" id="imagePreview"
+                  src="https://adminlte.io/themes/AdminLTE/dist/img/user3-128x128.jpg" alt="User profile picture">
+              </div>
+            </div> }}
+            <div class="avatar-xxl me-3 avatar-upload">
+              <div class="avatar-edit">
+                {{! <form action="" method="post" id="form-image"> }}
+                <input
+                  type="file"
+                  id="featuredImage"
+                  name="featuredImage"
+                  accept=".png, .jpg, .jpeg"
+                />
+                <label for="featuredImage"><i class="fa fa-camera"></i></label>
+                {{! </form> }}
+              </div>
+
+            </div>
+          </div>
+      </div>
+      <div class="col-sm-auto">
+        <div class="d-flex align-items-start justify-content-end gap-2 mb-2">
+          {{! <div>
+            <div class="dropdown">
+              <button class="btn btn-link font-size-16 shadow-none text-muted dropdown-toggle" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bx bx-dots-horizontal-rounded font-size-20"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+          </div> }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xl-12 col-lg-12">
+    <div class="tab-content">
+      <div class="tab-pane active" id="overview" role="tabpanel">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title mb-0">Nội dung</h5>
+          </div>
+
+          <div class="card-body">
+            <div>
+              <div class="pb-3">
+                <div class="text-muted">
+                  <p style="display:none" id="usename">{{article.title}}</p>
+                  <p>Title: {{article.title}}</p>
+                  <p>SubTitle: {{article.subTitle}}</p>
+                </div>
+              </div>
+
+            </div>
+                <div class="pb-3">
+                  <p>Content: {{{article.content}}}</p>
+            </div>
+            <div class="d-flex justify-content-end">
+              {{!-- <div class="mr-2" style="margin-right: 5px;">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                  data-bs-target=".bs-example-modal-lg">Update</button>
+                <!--  Large modal example -->
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog"
+                  aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="myLargeModalLabel">Update</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div id="pristine-valid-example" novalidate>
+                          <h5> Information about</h5>
+                          <div class="row">
+                            <div class="col-xl-4 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>FullName</label>
+                                <input type="text" required id="fullName" value="{{article.fullName}}"
+                                  data-pristine-required-message="Please Enter fullName" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Email</label>
+                                <input type="email" required id="email" value="{{article.email}}" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Phone</label>
+                                <input type="tel" required id="phone" value="{{article.phone}}" class="form-control" />
+                              </div>
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Date of Birth</label>
+                                <input class="form-control" type="date" id="date" value="{{article.date}}">
+                              </div>
+
+                            </div>
+                            <div class="col-xl-4 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Possition</label>
+                                <input type="text" required id="position" value="{{article.position}}"
+                                  class="form-control" />
+                              </div>
+                            </div>
+                          </div>
+                          <h5> Social Links</h5>
+                          <div class="row">
+
+                            <div class="col-xl-6 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Facebook</label>
+                                <input type="text" required value="{{article.socialLinks.facebook}}" id="face"
+                                  class="form-control" />
+                              </div>
+                            </div>
+                            <div class="col-xl-6 col-md-6">
+                              <div class="form-group mb-3">
+                                <label>Instagram</label>
+                                <input type="text" required id="ig" value="{{article.socialLinks.instagram}}"
+                                  data-pristine-required-message="Please Enter a Email" class="form-control" />
+                              </div>
+                            </div>
+
+                          </div>
+
+                          <div class="form-group">
+                            <button type="button" id="update" class="btn btn-primary">Update</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+              </div> --}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end tab content -->
+  </div>
+  <!-- end col -->
+
+  <!-- end col -->
+</div>
+<script src="/assets/libs/jquery/jquery.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/libs/feather-icons/feather.min.js"></script>
+<!-- pace js -->
+<script src="/assets/libs/pace-js/pace.min.js"></script>
+
+<!-- apexcharts -->
+<script src="/assets/libs/apexcharts/apexcharts.min.js"></script>
+
+<script src="/assets/js/pages/profile.init.js"></script>
+
+<script src="/assets/js/app.js"></script>
+{{! <script src="/js/member.js"></script> }}

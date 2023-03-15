@@ -1,0 +1,378 @@
+<div class="row">
+  <div class="col-12">
+    <div
+      class="page-title-box d-sm-flex align-items-center justify-content-between"
+    >
+      <h4 class="mb-sm-0 font-size-18">Member Accounts Management</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="./">Homae</a></li>
+          <li class="breadcrumb-item active">Member Accounts</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- end page title -->
+
+<div class="modal fade" id="ignismyModal" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+
+        <div class="thank-you-pop">
+          <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+          <h1 class="text-center">Success!</h1>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+<div class="row align-items-center">
+  <div class="col-md-6">
+    {{! <div class="mb-3">
+            <h5 class="card-title">Contact List <span class="text-muted fw-normal ms-2">(834)</span></h5>
+        </div> }}
+  </div>
+
+  <div class="col-md-6">
+    <div
+      class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3"
+    >
+      <div>
+        {{! <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="apps-contacts-list.html" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="List"><i class="bx bx-list-ul"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="apps-contacts-grid.html" data-bs-toggle="tooltip"
+                            data-bs-placement="top" title="Grid"><i class="bx bx-grid-alt"></i></a>
+                    </li>
+                </ul> }}
+      </div>
+      <div>
+        <a class="btn btn-secondary" href="/admin/members/new"><i
+            class="bx bx-plus me-1"
+          ></i>Add New</a>
+
+        <!-- Large modal button -->
+        {{! <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                    data-bs-target=".bs-example-modal-lg"><i class="bx bx-plus me-1"></i>Add New</button> }}
+
+        <!--  Large modal example -->
+        <div
+          class="modal fade bs-example-modal-lg"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myLargeModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myLargeModalLabel">Add new member</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+
+                <form
+                  id="data"
+                  novalidate=""
+                  action="/admin/members"
+                  method="POST"
+                  enctype="multipart/form-data"
+                >
+                  <h5> Information about</h5>
+                  <div class="row">
+                    <div class="col-12 avatar-xxl me-3 avatar-upload">
+                      <div class="avatar-edit">
+                        {{! <form action="" method="post" id="form-image"> }}
+                        <input
+                          type="file"
+                          id="featuredImage"
+                          name="featuredImage"
+                          accept=".png, .jpg, .jpeg"
+                        />
+                        <label for="featuredImage"><i
+                            class="fa fa-camera"
+                          ></i></label>
+                        {{! </form> }}
+                      </div>
+
+                      <img
+                        id="imagePreview"
+                        src="https://laka-storage-vn.hn.ss.bfcplatform.vn/assets/images/avatars/a1@200.png"
+                        alt=""
+                        class="img-fluid img-thumbnail tmp-avatar-circle"
+                      />
+
+                    </div>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-xl-4 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>FullName</label>
+                        <input
+                          type="text"
+                          name="fullName"
+                          data-pristine-required-message="Please Enter fullName"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Email</label>
+                        <input
+                          type="email"
+                          name="email"
+                          data-pristine-required-message="Please Enter a Email"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Phone</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          data-pristine-required-message="Please Enter a Email"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Date of Birth</label>
+                        <input class="form-control" type="date" name="dOB" />
+                      </div>
+
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Position</label>
+                        <input
+                          type="text"
+                          required
+                          name="position"
+                          data-pristine-required-message="Please Enter a Position"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <h5> Social Links</h5>
+                  <div class="row">
+
+                    <div class="col-xl-6 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Facebook</label>
+                        <input
+                          type="text"
+                          id="face"
+                          name="face"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Instagram</label>
+                        <input
+                          type="text"
+                          id="ig"
+                          name="ig"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Linkedin</label>
+                        <input
+                          type="text"
+                          id="linkedin"
+                          name="linkedin"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-md-6">
+                      <div class="form-group mb-3">
+                        <label>Twitter</label>
+                        <input
+                          type="text"
+                          id="twitter"
+                          name="twitter"
+                          class="form-control"
+                        />
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <button class="btn btn-primary">Create</button>
+                  </div>
+                </form>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+      </div>
+      {{! <div class="dropdown">
+                <a class="btn btn-link text-muted py-1 font-size-16 shadow-none dropdown-toggle" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bx bx-dots-horizontal-rounded"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div> }}
+    </div>
+
+  </div>
+</div>
+<!-- end row -->
+
+<div class="table-responsive mb-4">
+  <table
+    class="table align-middle datatable dt-responsive table-check nowrap"
+    style="border-collapse: collapse; border-spacing: 0 8px; width: 100%;"
+  >
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th style="width: 80px; min-width: 80px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each members}}
+        <tr>
+          <th scope="row">
+            {{this.fullName}}
+          </th>
+          <td>
+            {{this.position}}
+          </td>
+          <td>{{this.email}}</td>
+          <td>{{this.phone}}</td>
+          <td>
+            <a class="ml-2" href="/admin/members/detail/{{this.username}}"><i
+                class="fas fa-eye"
+              ></i></a>
+            <a href="/admin/members/edit/{{this.username}}"><i
+                class="fas fa-edit text-success"
+              ></i></a>
+                <a href="/admin/members/{{this.username}}/delete"><i
+                class="fas fa-trash text-danger"
+              ></i></a>
+            {{!-- <i
+              class="fas fa-trash-alt text-danger modal-click"
+              data-bs-toggle="modal"
+              data-bs-target="#myModal"
+              data-name="{{this.username}}"
+            ></i> --}}
+
+            <!-- sample modal content -->
+            <div
+              id="myModal"
+              class="modal fade"
+              tabindex="-1"
+              aria-labelledby="myModalLabel"
+              aria-hidden="true"
+              data-bs-scroll="true"
+            >
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="myModalLabel">Delete Confirm</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <h4>Bạn có chắc muốn xóa thành viên
+                      <span id="username-modal"></span></h4>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary waves-effect"
+                      data-bs-dismiss="modal"
+                    >Close</button>
+                    <button
+                      type="button"
+                      id="delete"
+                      class="btn btn-danger waves-effect waves-light"
+                    >Delete</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
+            </div><!-- /.modal -->
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <!-- end table -->
+</div>
+
+<script src="/assets/libs/jquery/jquery.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/libs/feather-icons/feather.min.js"></script>
+<!-- pace js -->
+<script src="/assets/libs/pace-js/pace.min.js"></script>
+<!-- validation init -->
+<script src="/assets/js/pages/validation.init.js"></script>
+<script src="/assets/js/pages/feather-icon.init.js"></script>
+<!-- pristine js -->
+<script src="/assets/libs/pristinejs/pristine.min.js"></script>
+<!-- pace js -->
+<script src="/assets/libs/pace-js/pace.min.js"></script>
+
+<!-- Required datatable js -->
+<script src="/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+<script
+  src="/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"
+></script>
+
+<!-- Responsive examples -->
+<script
+  src="/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"
+></script>
+<script
+  src="/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"
+></script>
+
+<!-- init js -->
+<script src="/assets/js/pages/datatable-pages.init.js"></script>
+
+<script src="/assets/js/app.js"></script>
+<script src="/js/member.js"></script>

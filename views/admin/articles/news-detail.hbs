@@ -1,0 +1,176 @@
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+      <h4 class="mb-sm-0 font-size-18">Update news</h4>
+
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active">Update news</li>
+        </ol>
+      </div>
+
+    </div>
+  </div>
+</div>
+<form class="needs-validation add-product-form" novalidate="" action="/admin/news/{{article.slug}}" method="POST"
+  enctype="multipart/form-data">
+  <div class="modal fade" id="ignismyModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body">
+
+          <div class="thank-you-pop">
+            <img src="/assets/logos/Green-Round-Tick.png" alt="logon" />
+            <h1 class="text-center">Success!</h1>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Info</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mb-3">
+                <label for="example-text-input" class="form-label">Title</label>
+                <input class="form-control" value="{{article.title}}" type="text" name="title">
+              </div>
+              <div class="mb-3">
+                <label for="example-text-input" class="form-label">Sub Title</label>
+                <input class="form-control" type="text" name="subTitle" value="{{article.subTitle}}" id="subT">
+              </div>
+                <div class="mb-3">
+                    <label class="form-label">Select Language</label>
+                    <select class="form-select" name="lan">
+                        {{#each languages}}
+                            <option value="{{this}}" {{#ifCond ../article.lan '===' this}}selected{{/ifCond}}>{{this}}</option>
+                        {{/each}}
+
+                    </select>
+                </div>
+              <div class="mb-3">
+                <label for="example-text-input" class="form-label">Source:</label>
+                <input class="form-control" name="source" value="{{article.source}}" type="text" id="source">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div id="show-image">
+                <label class="form-label">Thumbnail</label>
+                <br>
+                <div class="d-flex justify-content-center">
+                  <img src="{{article.thumbnail}}" class="img-fluid w-50" alt="Responsive image">
+                </div>
+                <div class="d-flex justify-content-center">
+                  <a role="button" class="primary" id="up">Update thumbnail</a>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="custom-file" id="updateImage">
+                  <div class="d-flex justify-content-start">
+                    <label class="form-label">Update thumbnail</label>
+                  </div>
+                  <br>
+                  <input type="file" class="custom-file-input" name="image" id="customFile">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <span role="button" id="cancle">Cancel</span>
+                </div>
+
+              </div> <!-- end col -->
+            </div> <!-- end col -->
+            <div class="col">
+              <label class="mr-4">This article is featured?</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="featured" id="featured1" value="true"
+                {{#if article.isFeatured }}checked{{/if}}>
+                <label class="form-check-label" for="featured1">Yes</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="featured" id="featured2" value="false"
+                  {{#if article.isFeatured}}{{else}}checked{{/if}}>
+                <label class="form-check-label" for="featured2">No</label>
+              </div>
+            </div>
+          </div> <!-- end row -->
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Content</h4>
+        </div>
+        <div class="card-body">
+          <textarea name="content" id="ckeditor-classic"></textarea>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end">
+        <button class="btn btn-primary" type="submit">Update</button>
+</form>
+<button type="button" class="btn btn-danger waves-effect waves-light ml-2" style="margin-left: 5px;"
+  data-bs-toggle="modal" data-bs-target="#myModal">Update Status</button>
+<!-- sample modal content -->
+<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true"
+  data-bs-scroll="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalLabel">Update status new</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="formRadios" value="1" id="formRadios1">
+          <label class="form-check-label" for="formRadios1">
+            Publish
+          </label>
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="radio" name="formRadios" value="0" id="formRadios2">
+          <label class="form-check-label" for="formRadios2">
+            Draff
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary waves-effect" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="status" class="btn btn-danger waves-effect waves-light">Update</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>
+</div>
+</div>
+<!-- end col -->
+</div>
+<p style="display:none" id="con">{{article.content}}</p>
+
+<!-- JAVASCRIPT -->
+<script src="/assets/libs/jquery/jquery.min.js"></script>
+<script src="/assets/libs/metismenu/metisMenu.min.js"></script>
+<script src="/assets/libs/simplebar/simplebar.min.js"></script>
+<script src="/assets/libs/node-waves/waves.min.js"></script>
+<script src="/assets/libs/feather-icons/feather.min.js"></script>
+<!-- pace js -->
+<script src="/assets/libs/pace-js/pace.min.js"></script>
+
+<!-- ckeditor -->
+<script src="/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
+
+<!-- init js -->
+<script src="/assets/libs/dropzone/min/dropzone.min.js"></script>
+
+<script src="/assets/js/app.js"></script>
+<script src="/js/newsDetail.js"></script>
